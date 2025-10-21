@@ -2,217 +2,177 @@
 <html lang="en">
 <head>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operating Department</title>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Operating Department</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: url('BBG.JPEG') no-repeat center center fixed;
-      background-size: cover;
-      margin: 0;
-      text-align: center;
-    }
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: url('BBG.JPEG') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+  }
 
-    .heading1 {
-font-family: 'Playfair Display', serif;
-      font-size: 65px;
-      font-weight: bold;
-      text-shadow: 3px 3px 5px white;
-      color: #00BFFF;
-      margin: 30px 0 0px 0;
+  /* Responsive Headings */
+  .heading1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 65px);
+    font-weight: bold;
+    text-shadow: 3px 3px 5px white;
+    color: #00BFFF;
+    margin: 30px 0 0px 0;
+  }
 
+  .heading2 {
+    font-family: 'Bookman Old Style', serif;
+    font-size: clamp(26px, 4.5vw, 65px);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #00BFFF;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 5px 5px 5px blue;
+  }
 
-     
-    }
+  .heading3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3.5vw, 38px);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 5px yellow;
+    color: #2E8B57;
+  }
 
-    .heading2 {
+  /* Responsive Logo */
+  .logo {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    width: clamp(80px, 12vw, 150px);
+    height: auto;
+    object-fit: cover;
+  }
 
-font-family: 'Bookman Old Style', serif;
-      font-size: 65px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #00BFFF;
-      -webkit-text-stroke: 2px black;
-      text-shadow: 5px 5px 5px blue;
-      
-    }
+  /* Responsive Passport Container */
+  .passport-container {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    text-align: center;
+  }
 
-    .heading3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 38px;
-      font-weight: bold;
-      text-transform: uppercase;
-      text-shadow: 3px 3px 5px yellow;
-      color: #2E8B57;
-    }
+  .passport {
+    width: clamp(90px, 12vw, 150px);
+    height: auto;
+    border: 2px solid black;
+    object-fit: cover;
+  }
 
-    .logo {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-    }
+  .caption {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(12px, 1.5vw, 18px);
+    font-weight: bold;
+    color: #002366;
+    margin-top: 6px;
+  }
 
-    .passport-container {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      text-align: center;
-    }
+  /* Button Container */
+  .button-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    justify-items: center;
+    margin: 70px auto;
+    max-width: 80%;
+  }
 
-    .passport {
-      width: 150px;
-      height: 170px;
-      border: 2px solid black;
-      object-fit: cover;
-    }
+  button {
+    width: clamp(180px, 22vw, 260px);
+    height: clamp(60px, 8vh, 85px);
+    font-size: clamp(16px, 2vw, 25px);
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 14px;
+    color: WHITE;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.35s ease;
+    background-size: 200% auto;
+    text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
+  }
 
-    .caption {
- font-family: 'Cinzel Decorative', serif;
+  button:hover {
+    transform: scale(1.07);
+    background-position: right center;
+    box-shadow: 0 0 20px rgba(255,255,255,0.5),
+                0 0 40px rgba(255,255,255,0.2);
+  }
 
-      font-size: 18px;
-      font-weight: bold;
-      color: #002366;
-      margin-top: 8px;
+  /* Gradient themes */
+  .A { background: linear-gradient(135deg, #1565c0, #1e88e5); }
+  .B { background: linear-gradient(135deg, #00897b, #26a69a); }
+  .C { background: linear-gradient(135deg, #6a1b9a, #8e24aa); }
+  .D { background: linear-gradient(135deg, #ef6c00, #f57c00); }
+  .E { background: linear-gradient(135deg, #0097a7, #006064); }
+  .F { background: linear-gradient(135deg, #f9a825, #f57f17); }
 
+  /* Responsive Button Grid */
+  @media (max-width: 1024px) {
+    .button-container { grid-template-columns: repeat(3, 1fr); }
+  }
 
-    }
+  @media (max-width: 768px) {
+    .button-container { grid-template-columns: repeat(2, 1fr); gap: 35px; }
+  }
 
-    /* Button container */
-    .button-container {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:60px;
-      justify-items: center;
-      margin: 70px auto;
-      max-width: 75%;
-    }
+  @media (max-width: 480px) {
+    .button-container { grid-template-columns: 1fr; gap: 25px; margin: 40px auto; }
+  }
 
-    button {
-  width: 260px;
-  height: 85px;
-  font-size: 25px;
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 700;
-  letter-spacing: 1px;
-  border: none;
-  border-radius: 14px;
-  color: WHITE;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: all 0.35s ease;
-  background-size: 200% auto;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
-}
+  /* Scrolling Text */
+  .scroll-text {
+    margin-top: clamp(80px, 15vh, 190px);
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: clamp(18px, 3vw, 32px);
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 3px 3px 6px #002366, 0 0 20px #fff;
+    border-top: 2px solid rgba(255,255,255,0.4);
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+    padding: 5px 0;
+    background: rgba(0, 35, 102, 0.2);
+  }
 
+  .scroll-text span {
+    color: #fff;
+    text-shadow: 2px 2px 4px #000, 0 0 10px #FFD700;
+    font-style: italic;
+  }
 
-    button:hover {
-      transform: scale(1.07);
-      background-position: right center;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
-                  0 0 40px rgba(255, 255, 255, 0.2);
-    }
+  /* Responsive Watermark */
+  .watermark {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    opacity: 0.1;
+    font-size: clamp(40px, 10vw, 120px);
+    font-weight: bold;
+    color: #0d47a1;
+    user-select: none;
+    pointer-events: none;
+  }
 
-    /* Gradient + neon glow themes */
-    .btn1 { background-image: linear-gradient(to right, #89f7fe, #66a6ff); }
-    .btn2 { background-image: linear-gradient(to right, #f6d365, #fda085); }
-    .btn3 { background-image: linear-gradient(to right, #a1c4fd, #c2e9fb); }
-    .btn4 { background-image: linear-gradient(to right, #fbc2eb, #a6c1ee); }
-    .btn5 { background-image: linear-gradient(to right, #fddb92, #d1fdff); }
-    .btn6 { background-image: linear-gradient(to right, #84fab0, #8fd3f4); }
-
-    .btn1:hover { box-shadow: 0 0 20px #66a6ff, 0 0 40px #89f7fe; }
-    .btn2:hover { box-shadow: 0 0 20px #f6d365, 0 0 40px #fda085; }
-    .btn3:hover { box-shadow: 0 0 20px #a1c4fd, 0 0 40px #c2e9fb; }
-    .btn4:hover { box-shadow: 0 0 20px #fbc2eb, 0 0 40px #a6c1ee; }
-    .btn5:hover { box-shadow: 0 0 20px #fddb92, 0 0 40px #d1fdff; }
-    .btn6:hover { box-shadow: 0 0 20px #84fab0, 0 0 40px #8fd3f4; }
-
-    .A { background: linear-gradient(135deg, #1565c0, #1e88e5); }
-    .B { background: linear-gradient(135deg, #00897b, #26a69a); }
-    .C { background: linear-gradient(135deg, #6a1b9a, #8e24aa); }
-    .D { background: linear-gradient(135deg, #ef6c00, #f57c00); }
-    .E { background: linear-gradient(135deg, #0097a7, #006064); }
-    .F { background: linear-gradient(135deg, #f9a825, #f57f17); }
-
-
-
-    /* Sub-buttons */
-    .sub-buttons {
-      display: none;
-      margin-top: 10px;
-      text-align: center;
-      animation: fadeIn 0.4s ease;
-    }
-
-    .sub-buttons button {
-      width: 190px;
-      height: 45px;
-      font-size: 16px;
-grid-template-columns: repeat(4, 1fr);
-      border: none;
-      border-radius: 10px;
-      background-image: linear-gradient(to right, #e0f7fa, #e1f5fe);
-      color: #003366;
-      font-weight: bold;
-      transition: all 0.3s;
-    }
-
-    .sub-buttons button:hover {
-      transform: scale(1.06);
-      box-shadow: 0 0 15px #b3e5fc;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-/* Stylish Scrolling Text */
-.scroll-text {
-  margin-top: 190px;
-  font-family: 'Cinzel Decorative', cursive;
-  font-size: 32px;
-  font-weight: bold;
-  color: #FFD700;
-  text-shadow: 3px 3px 6px #002366, 0 0 20px #fff;
-  border-top: 2px solid rgba(255,255,255,0.4);
-  border-bottom: 2px solid rgba(255,255,255,0.4);
-  padding: 5px 0;
-  background: rgba(0, 35, 102, 0.2);
-}
-
-.scroll-text span {
-  color: #fff;
-  text-shadow: 2px 2px 4px #000, 0 0 10px #FFD700;
-  font-style: italic;
-}
-
-
-.watermark {
-      position: fixed;
-      bottom: 10px;
-      right: 20px;
-      opacity: 0.1;
-      font-size: 120px;
-      font-weight: bold;
-      color: #0d47a1;
-      user-select: none;
-      pointer-events: none;
-    }
-
-/* Footer */
+  /* Footer */
   footer {
     text-align: center;
     padding: 15px;
     background: rgba(0, 35, 102, 0.6);
     color: white;
     font-family: 'Playfair Display', serif;
-    font-size: 18px;
+    font-size: clamp(14px, 2vw, 18px);
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -228,12 +188,9 @@ grid-template-columns: repeat(4, 1fr);
     color: #fff;
     text-decoration: underline;
   }
-
-
-
-
-  </style>
+</style>
 </head>
+
 <body>
   <img src="L2.jpeg" alt="Logo" class="logo">
 
@@ -247,77 +204,39 @@ grid-template-columns: repeat(4, 1fr);
   <div class="heading2">🚉STATION WORKING RULES</div>
   <div class="heading3">GUNTUR DIVISION</div>
 
-  
-
- <!-- Main Button Grid -->
-   <div class="button-container">
-   
+  <!-- Main Button Grid -->
+  <div class="button-container">
     <button class="A" onclick="window.open('https://docs.google.com/spreadsheets/d/1msRW2gVHlvrmiNwhQFLjOvP65eCwg4cUeJrNsQx2HOY/edit?gid=959982158#gid=959982158')">STATIONS INFO.</button>
- <button class="B" onclick="window.open('https://docs.google.com/spreadsheets/d/1msRW2gVHlvrmiNwhQFLjOvP65eCwg4cUeJrNsQx2HOY/edit?gid=297782426#gid=297782426')">📘 SWR MAIN DOCUMENTS</button>
-    <button class="C" onclick="openFolder('YOUR_DRIVE_FOLDER_LINK_HERE')">🚦 YARD DIAGRAMS</button>
-    <button class="D" onclick="openFolder('YOUR_DRIVE_FOLDER_LINK_HERE')">💡 SIGNALLING LAYOUTS</button>
-    <button class="E" onclick="openFolder('YOUR_DRIVE_FOLDER_LINK_HERE')">⚡ ELECTRICAL INSTRUCTIONS</button>
-    <button class="F" onclick="openFolder('YOUR_DRIVE_FOLDER_LINK_HERE')">🦺 SAFETY CIRCULARS</button>
-    <button class="A" onclick="openFolder('YOUR_DRIVE_FOLDER_LINK_HERE')">📂 MISC DOCUMENTS</button>
-
-
+    <button class="B" onclick="window.open('https://docs.google.com/spreadsheets/d/1msRW2gVHlvrmiNwhQFLjOvP65eCwg4cUeJrNsQx2HOY/edit?gid=297782426#gid=297782426')">📘 SWR MAIN DOCUMENTS</button>
+    <button class="C" onclick="openFolder('YOUR_DRIVE_FOLDER_LINK_HERE')">YARD DIAGRAMS</button>
+    <button class="D" onclick="openFolder('YOUR_DRIVE_FOLDER_LINK_HERE')"> SIGNALLING LAYOUTS</button>
+    <button class="E" onclick="openFolder('YOUR_DRIVE_FOLDER_LINK_HERE')"> ELECTRICAL INSTRUCTIONS</button>
+    <button class="F" onclick="openFolder('YOUR_DRIVE_FOLDER_LINK_HERE')"> SAFETY CIRCULARS</button>
+    <button class="A" onclick="openFolder('YOUR_DRIVE_FOLDER_LINK_HERE')"> MISC DOCUMENTS</button>
   </div>
 
-<footer>
-  <p>
-    Designed for <strong>SWR Management</strong> | Powered by 
-    <a href="https://gunturoperating-hub.github.io/TI-HOME/">
-      Operating Department, GNT Division
-    </a>
-  </p>
-</footer>
+  <footer>
+    <p>
+      Designed for <strong>SWR Management</strong> | Powered by 
+      <a href="https://gunturoperating-hub.github.io/TI-HOME/">
+        Operating Department, GNT Division
+      </a>
+    </p>
+  </footer>
 
-<!-- Stylish Scrolling Text -->
-<div class="scroll-text">
-  <marquee behavior="scroll" direction="LEFT" scrollamount="12">
-    🌟✨ Welcome to the <span>Operating Department SWR Portal</span> of <span>Guntur Division, South Central Railway</span>  🚂💼
-  </marquee>
-</div>
-<div class="watermark">SWR-HUB</div>
+  <!-- Scrolling Text -->
+  <div class="scroll-text">
+    <marquee behavior="scroll" direction="LEFT" scrollamount="12">
+      🌟✨ Welcome to the <span>Operating Department SWR Portal</span> of <span>Guntur Division, South Central Railway</span> 🚂💼
+    </marquee>
+  </div>
 
+  <div class="watermark">SWR-HUB</div>
 
- <script>
-  // Toggle visibility of sub-buttons (dropdowns)
-  function toggleSubButtons(id) {
-    // Close all other open submenus first
-    document.querySelectorAll('.sub-buttons').forEach(sub => {
-      if (sub.id !== id) sub.style.display = 'none';
-    });
-
-    const el = document.getElementById(id);
-    el.style.display = (el.style.display === "block") ? "none" : "block";
-  }
-
-  // Open link and immediately close submenu
-  function openSub(url, id) {
-    const submenu = document.getElementById(id);
-    if (submenu) submenu.style.display = 'none'; // Hide instantly before opening
-
-    // Open in new tab after a short delay (ensures submenu hides first)
-    setTimeout(() => {
-      window.open(url, '_blank');
-    }, 100);
-  }
-
-  // Hide submenu if user clicks anywhere outside of it
-  document.addEventListener('click', function(event) {
-    const isInsideSubmenu = event.target.closest('.sub-buttons');
-    const isMainButton = event.target.closest('button');
-    if (!isInsideSubmenu && !isMainButton) {
-      document.querySelectorAll('.sub-buttons').forEach(sub => sub.style.display = 'none');
+  <script>
+    function openFolder(link) {
+      window.open(link, '_blank');
     }
-  });
-</script>
-
-
+  </script>
 </body>
 </html>
-
-
-
-
